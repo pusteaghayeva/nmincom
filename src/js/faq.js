@@ -13,7 +13,6 @@
       a.style.maxHeight = a.scrollHeight + 'px';
     }
 
-    // init: əvvəlcədən is-open varsa hündürlüyü düz qoy
     items.forEach(item => {
       const a = item.querySelector('.faq-a');
       if(item.classList.contains('is-open')){
@@ -25,15 +24,12 @@
       item.querySelector('.faq-q').addEventListener('click', () => {
         const isOpen = item.classList.contains('is-open');
 
-        // hamısını bağla
         items.forEach(closeItem);
 
-        // əgər bağlı idi, bunu aç
         if(!isOpen) openItem(item);
       });
     });
 
-    // resize-da açıq itemin hündürlüyünü yenilə
     window.addEventListener('resize', () => {
       const open = document.querySelector('.faqs-blog .faq-item.is-open .faq-a');
       if(open) open.style.maxHeight = open.scrollHeight + 'px';

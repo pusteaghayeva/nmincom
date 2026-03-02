@@ -16,7 +16,6 @@ const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
 
   if (!yearsRow || !viewport || !buttons.length) return;
 
-  /* ================= CAROUSEL ================= */
   let tx = 0;
 
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
@@ -70,7 +69,6 @@ const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
     applyTranslate();
   }
 
-  /* ================= PANELS ================= */
   function pickInitialYear() {
     const now = new Date().getFullYear();
     const exact = buttons.find(b => +b.dataset.year === now);
@@ -86,13 +84,11 @@ const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
     buttons.forEach(b => b.classList.toggle('is-active', b.dataset.year === year));
     panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === year));
 
-    // 🔑 transform bitəndən sonra ölç
     requestAnimationFrame(() => {
       requestAnimationFrame(() => recalcConnector(btn));
     });
   }
 
-  /* ================= CONNECTOR ================= */
   function recalcConnector(btn) {
     if (!connector || !contentArea) return;
     if (getComputedStyle(connector).display === 'none') return;
@@ -108,7 +104,6 @@ const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
     const contentRect = contentArea.getBoundingClientRect();
     const textRect    = text.getBoundingClientRect();
 
-    // 🧠 yalnız GÖRÜNƏN hissənin mərkəzi
     const visibleLeft  = Math.max(btnRect.left, viewRect.left);
     const visibleRight = Math.min(btnRect.right, viewRect.right);
     let cx = ((visibleLeft + visibleRight) / 2) - contentRect.left;
@@ -133,14 +128,13 @@ const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
     safeRoot.style.setProperty('--cw', cw + 'px');
   }
 
-  /* ================= CLICK BEHAVIOR ================= */
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const year = btn.dataset.year;
       const active = btn.classList.contains('is-active');
 
       if (!isDesktop() && active) {
-        closeAll(); // mobil: 2-ci klik bağlayır
+        closeAll(); 
         return;
       }
 
@@ -157,7 +151,6 @@ const isDesktop = () => window.matchMedia('(min-width: 992px)').matches;
     });
   });
 
-  /* ================= INIT ================= */
   const initYear = pickInitialYear();
   const initBtn = buttons.find(b => b.dataset.year === initYear);
   activate(initYear, initBtn);

@@ -17,7 +17,6 @@ const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
     function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
 
     function syncThumb() {
-      // ✅ Mobil-də custom scrollbar işləməsin
       if (!isDesktop()) {
         thumb.style.display = 'none';
         return;
@@ -26,7 +25,6 @@ const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
       const scrollH = body.scrollHeight;
       const clientH = body.clientHeight;
 
-      // kontent azdırsa thumb gizlə
       if (scrollH <= clientH + 1) {
         thumb.style.display = 'none';
         return;
@@ -47,19 +45,16 @@ const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
       thumb.style.top = thumbTop + 'px';
     }
 
-    // scroll olunca thumb yenilə
     body.addEventListener('scroll', syncThumb);
 
-    // drag start
     thumb.addEventListener('mousedown', (e) => {
-      if (!isDesktop()) return; // mobil safety
+      if (!isDesktop()) return; 
       isDragging = true;
       startY = e.clientY;
       startTop = parseFloat(getComputedStyle(thumb).top) || 0;
       e.preventDefault();
     });
 
-    // drag move
     document.addEventListener('mousemove', (e) => {
       if (!isDragging || !isDesktop()) return;
 
@@ -76,10 +71,8 @@ const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
       body.scrollTop = ratio * maxScrollTop;
     });
 
-    // drag end
     document.addEventListener('mouseup', () => { isDragging = false; });
 
-    // track-ə klik
     track.addEventListener('mousedown', (e) => {
       if (!isDesktop()) return;
       if (e.target === thumb) return;
@@ -99,7 +92,6 @@ const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
       body.scrollTo({ top: ratio * maxScrollTop, behavior: 'smooth' });
     });
 
-    // ilkin hesabla + resize
     syncThumb();
     window.addEventListener('resize', syncThumb);
   });
