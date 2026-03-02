@@ -1,45 +1,35 @@
-// nav
-const searchIcons = document.querySelectorAll('.search-icon');
-const searchBg = document.querySelector('.search-bg');
-const closeBtn = document.querySelector('.search-close');
-const headerEl = document.querySelector('header.header-main');
-
-function setHeaderH(){
-  if(!headerEl) return;
-  const h = headerEl.getBoundingClientRect().height;
-  document.documentElement.style.setProperty('--headerH', `${Math.ceil(h)}px`);
+const searchIcons = document.querySelectorAll(".search-icon");
+const searchBg = document.querySelector(".search-bg");
+const closeBtn = document.querySelector(".search-close");
+let lastScrollY = 0;
+function openSearch() {
+  lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  window.scrollTo({ top: 0, behavior: "instant" });
+  document.body.classList.add("search-open");
+  searchBg.classList.add("search-menu-open");
+  searchIcons.forEach((ic) => ic.classList.add("active"));
 }
 
-function openSearch(){
-  setHeaderH();
-  searchBg.classList.add('search-menu-open');
-  document.body.classList.add('search-open');
-  searchIcons.forEach(ic => ic.classList.add('active'));
+function closeSearch() {
+  searchBg.classList.remove("search-menu-open");
+  document.body.classList.remove("search-open");
+  searchIcons.forEach((ic) => ic.classList.remove("active"));
+  window.scrollTo({ top: lastScrollY, behavior: "instant" });
 }
 
-function closeSearch(){
-  searchBg.classList.remove('search-menu-open');
-  document.body.classList.remove('search-open');
-  searchIcons.forEach(ic => ic.classList.remove('active'));
-}
-
-searchIcons.forEach(icon => {
-  icon.addEventListener('click', (e) => {
+searchIcons.forEach((icon) => {
+  icon.addEventListener("click", (e) => {
     e.preventDefault();
-    const isOpen = searchBg.classList.contains('search-menu-open');
+    const isOpen = searchBg.classList.contains("search-menu-open");
     isOpen ? closeSearch() : openSearch();
   });
 });
 
-if(closeBtn) closeBtn.addEventListener('click', closeSearch);
+if (closeBtn) closeBtn.addEventListener("click", closeSearch);
 
-window.addEventListener('load', setHeaderH);
-window.addEventListener('resize', setHeaderH);
-
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape') closeSearch();
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeSearch();
 });
-// nav end
 // nav  fixed
  (function () {
     const stickyEl = document.querySelector('.js-sticky');
