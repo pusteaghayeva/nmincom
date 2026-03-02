@@ -6,7 +6,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url('/src/img/telecommunication.png') center/cover no-repeat;
+    background: url('../../img/telecommunication.png') center/cover no-repeat;
     transform: scale(1);
     transition: transform .8s ease;
     will-change: transform;

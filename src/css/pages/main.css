@@ -165,7 +165,7 @@ body.light .progress-wrap svg.progress-circle path {
 }
 
 .services-logo {
-  background-image: url("/src/img/services-logo.svg");
+  background-image: url("../../img/services-logo.svg");
   background-repeat: no-repeat;
   position: absolute;
   top: -9%;
