@@ -1,0 +1,338 @@
+.tariffs-section {
+    margin: 80px 0;
+}
+
+.tariffs_bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/src/img/tariffs_bg.png') center/cover no-repeat;
+    transform: scale(1);
+    transition: transform .8s ease;
+    will-change: transform;
+    z-index: 0;
+}
+
+.tariffs-button {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    height: 64px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid var(--managementBorderColor);
+    transition: background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.tariffs-type {
+    width: 70%;
+    font-size: 16px;
+    font-weight: 500;
+    transition:
+        color .3s ease,
+        letter-spacing .3s ease;
+    margin: 0 20px;
+    color: var(--projectColorActive);
+}
+
+.tariffs-button.active .tariffs-type {
+    color: var(--governmentBg);
+}
+
+.tariffs-button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        transform .3s ease,
+        opacity .3s ease,
+        background .3s ease;
+}
+
+.tariffs-button:hover span:first-child {
+    transform: scale(1.1);
+}
+
+.tariffs-button:hover .tariffs-type {
+    color: var(--governmentBg);
+}
+
+.tariffs-button:hover span:last-child {
+    transform: translateX(8px);
+    opacity: 1;
+}
+
+.tariffs-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+            rgba(33, 87, 255, 1),
+            rgba(120, 160, 255, 1));
+    transition: width .4s ease;
+}
+
+.tariffs-button:hover::after {
+    width: 100%;
+}
+
+.tariffs-button.active {
+    color: var(--structureBg);
+    border-bottom: 2px solid var(--governmentBg);
+}
+
+.tariffs-button.active span {
+    color: var(--governmentBg);
+}
+
+.tariffs-content {
+    margin: 20px 0;
+}
+
+.tariffs-scroll-wrap {
+    position: relative;
+}
+
+.tariffs-scroll {
+    max-height: 560px;
+    overflow-y: auto;
+    padding-right: 36px;
+}
+
+.tariffs-scroll-btn {
+    position: absolute;
+    right: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid rgba(33, 87, 255, 0.25);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.tariffs-scroll-btn.up {
+    top: 8px;
+}
+
+.tariffs-scroll-btn.down {
+    bottom: 8px;
+}
+
+.tariffs-scroll-btn:hover {
+    background: rgba(67, 120, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+
+.tariffs-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tariffs-content {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--projectColorActive);
+}
+.tariffs-right-panel {
+    padding: 12px 10px 12px;
+}
+
+.tariffs-right-title {
+    display: inline-block;
+    color: #1e5bff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.35;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.tariffs-table-box {
+    background: rgba(67, 120, 255, 0.08);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.tariffs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #0b1b3a;
+}
+
+.tariffs-table thead th {
+    text-align: left;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.tariffs-table td {
+    padding: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tariffs-table thead th:last-child,
+.tariffs-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.tariffs-scroll-shell {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 76px;
+    gap: 40px;
+    align-items: start;
+}
+
+.tariffs-scroll-body {
+    max-height: 640px;
+    overflow-y: auto;
+    padding-right: 6px;
+    scrollbar-width: none;
+}
+
+.tariffs-scroll-body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.tariffs-scrollbar {
+    position: relative;
+    width: 76px;
+    height: 100%;
+    min-height: 640px;
+}
+
+.tariffs-scroll-arrow {
+    width: 0;
+    height: 0;
+    margin: 0 auto 14px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #111;
+}
+
+.tariffs-scroll-track {
+    width: 22px;
+    height: calc(100% - 28px);
+    margin: 0 auto;
+    background: transparent;
+    position: relative;
+}
+
+.tariffs-scroll-thumb {
+    width: 8px;
+    height: 20px;
+    margin: 0 auto;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.12);
+    background-color: var(--tariffsScrollColor);
+    cursor: grab;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tariffs-scroll-thumb:active {
+    cursor: grabbing;
+}
+
+.tariffs-scroll-shell {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.tariffs-scrollbar {
+    display: none;
+}
+
+.tariffs-scroll-body {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+    scrollbar-width: auto;
+}
+
+.tariffs-scroll-body::-webkit-scrollbar {
+    width: auto;
+    height: auto;
+}
+
+
+@media (min-width: 768px) {
+    .tariffs-scroll-shell {
+        grid-template-columns: 1fr 76px;
+        gap: 40px;
+    }
+
+    .tariffs-scrollbar {
+        display: block;
+        width: 76px;
+        min-height: 240px;
+    }
+
+    .tariffs-scroll-body {
+        max-height: 640px;
+        overflow-y: auto;
+        padding-right: 6px;
+        scrollbar-width: none;
+    }
+
+    .tariffs-scroll-body::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+
+@media(max-width: 1200px) {
+    .tariffs-type {
+        font-size: 14px;
+    }
+
+    .first-span {
+        font-size: 16px;
+    }
+
+    .tariffs-section {
+        margin: 60px 0;
+    }
+}
+
+@media(max-width: 769px) {
+    .tariffs-section {
+        margin: 30px 0;
+    }
+
+    .tariffs-type {
+        font-size: 16px;
+    }
+
+    .first-span {
+        font-size: 14px;
+    }
+
+    .tariffs-type {
+        width: 100%;
+        font-size: 13px;
+    }
+}

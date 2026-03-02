@@ -1,0 +1,62 @@
+.services-tariffs-section {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.services-tariffs-section .row {
+    margin: 80px 0 120px;
+}
+
+.services-tariffs-col {
+    position: relative;
+}
+
+.services-tariffs-col img {
+    width: 40px;
+    height: 40px;
+}
+
+.services-tariffs-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    text-align: center;
+    margin: 20px auto;
+}
+
+.services-tariffs-col {
+    width: 277px;
+    height: 188px;
+    background: rgba(67, 120, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 16px;
+    transition: all .5s ease-in-out;
+}
+
+.services-tariffs-col:hover {
+    background: rgba(67, 120, 255, 0.5);
+    transform: scale(1.04);
+
+}
+
+.services-tariffs-abs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+@media(max-width:1200px) {
+    .services-tariffs-col {
+        width: 100%;
+        height: auto;
+        margin: 10px auto;
+        padding: 20px;
+        min-height: 188px;
+    }
+}

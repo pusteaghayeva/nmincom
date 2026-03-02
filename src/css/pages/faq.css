@@ -1,0 +1,129 @@
+.faq-section {
+    margin: 32px 0;
+}
+
+.faq-main-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--projectColorActive);
+}
+
+.faq-text {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+
+.faqs-blog {
+    margin: 60px 0;
+    background: var(--structureBg);
+    border-radius: 8px;
+    padding: 14px 24px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .06);
+}
+
+.faq-card {
+    background: var(--structureBg);
+    border-radius: 8px;
+    padding: 8px 0;
+    padding: 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--managementBorderColor);
+}
+
+.faq-q {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    transition: color .25s ease;
+}
+
+.faq-q:focus {
+    outline: none;
+    border: none;
+}
+
+.faq-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    opacity: .6;
+    transition: transform .25s ease, opacity .25s ease;
+    background: currentColor;
+    -webkit-mask: url('/src/img/chevron.svg') center/contain no-repeat;
+    mask: url('/src/img/chevron.svg') center/contain no-repeat;
+
+}
+
+.faq-item.is-open .faq-icon {
+    transform: rotate(90deg);
+    opacity: .9;
+}
+
+.faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+}
+
+.faq-a-inner {
+    padding: 20px;
+    color: var(--projectColorActive);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.faq-item.is-open .faq-q {
+    color: var(--managementColor);
+}
+
+.faq-q {
+    color: var(--projectColorActive);
+}
+
+.faq-icon {
+    color: rgba(67, 120, 255, 0.5);
+}
+
+.faq-item.is-open .faq-q {
+    color: var(--managementColor);
+}
+
+.faq-item.is-open .faq-icon {
+    opacity: 1;
+    color: var(--managementColor);
+    transform: rotate(180deg);
+}
+
+@media (max-width: 576px) {
+    .faqs-blog {
+        margin: 20px 0 60px;
+    }
+
+    .faq-q {
+        padding: 16px 14px;
+        font-size: 15px;
+    }
+
+    .faq-a-inner {
+        padding: 0 14px 16px;
+    }
+
+    .faq-icon {
+        width: 10px;
+        height: 10px;
+    }
+}

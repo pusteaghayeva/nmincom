@@ -1,0 +1,260 @@
+.contact_information_bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/src/img/contact_bg.png') center/cover no-repeat;
+    transform: scale(1);
+    transition: transform .8s ease;
+    will-change: transform;
+    z-index: 0;
+}
+
+.contact_information {
+    margin: 80px 0 150px;
+
+}
+
+
+
+.contact_information_flex:hover .contact_information_address {
+    border-bottom: 1px solid rgba(87, 87, 87, 0.6);
+    transform: scale(1.03);
+
+}
+
+.contact_information_top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_information_top img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.contact_information_title {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--projectColorActive);
+}
+
+.contact_information_address {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--managementColor);
+    margin-top: 40px;
+    display: block;
+    border-bottom: 1px solid var(--managementColor);
+    padding-bottom: 12px;
+    text-align: center;
+    transition: all .4s ease;
+
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.service-contact {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 89px 0 100px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.service-contact-left-title {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--projectColorActive);
+    border-bottom: 1px solid var(--managementColor);
+    padding: 12px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.on-service-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+.on-service-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    margin-right: 12px;
+}
+
+.on-service-number {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--managementColor);
+}
+
+.map {
+    margin: 20px auto;
+}
+
+.map iframe {
+    width: 600px;
+    height: 450px;
+}
+
+
+.contact-information-blog {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 20px 0;
+    position: relative;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background-color .35s ease;
+}
+
+.contact-information-blog::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: var(--managementColor);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .35s ease;
+}
+
+.contact-information-blog:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .08);
+    background-color: var(--whiteColor);
+}
+
+.contact-information-blog:hover::before {
+    transform: scaleY(1);
+}
+
+.contact-information-blog:hover .department-mail-address span {
+    transform: scale(1.15);
+    color: var(--managementColor);
+}
+
+.department-name {
+    width: 70%;
+    background-color: var(--structureBg);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+}
+
+.department-mail-address span {
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgba(87, 87, 87, 0.3);
+}
+
+.department-mail-address {
+    width: 30%;
+    background: rgba(67, 120, 255, 0.1);
+    justify-content: center;
+
+}
+
+.department-name,
+.department-mail-address {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.mail-address {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--managementColor);
+}
+
+@media(max-width:1200px) {
+    .department-name {
+        width: 55%;
+    }
+
+    .department-mail-address {
+        width: 45%;
+    }
+
+    .mail-address {
+        font-size: 14px;
+    }
+
+    .contact_information_title,
+    .contact_information_address {
+        font-size: 14px;
+    }
+}
+
+@media(max-width:768px) {
+    .contact_information {
+        margin: 30px 0 80px;
+    }
+
+    .contact {
+        justify-content: center;
+
+    }
+
+    .contact_information_flex {
+        width: 100%;
+        margin: 4px auto;
+    }
+
+    .contact_information_address {
+        margin-top: 5px;
+    }
+
+    .service-contact {
+        margin: 40px 0;
+    }
+
+    .on-service-name,
+    .on-service-number {
+        font-size: 18px;
+    }
+
+    .service-contact-left-title {
+        font-weight: 700;
+        text-align: left;
+        padding: 0;
+    }
+
+    .service-contact {
+        justify-content: flex-start;
+    }
+
+    .map iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-information-blog {
+        flex-wrap: wrap;
+    }
+
+    .department-name {
+        font-size: 14px;
+    }
+
+    .department-name,
+    .department-mail-address {
+        width: 100%;
+    }
+
+}

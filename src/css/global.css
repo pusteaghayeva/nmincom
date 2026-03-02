@@ -1,0 +1,41 @@
+@import url("./font.css");
+@import url("./variable.css");
+
+/* layout */
+@import url("./layout/header.css");
+@import url("./layout/footer.css");
+
+/* pages */
+@import url("./pages/main.css");
+@import url("./pages/management.css");
+@import url("./pages/management_about.css");
+@import url("./pages/history.css");
+@import url("./pages/structure.css");
+@import url("./pages/ethical_behavior.css");
+@import url("./pages/general_provisions.css");
+@import url("./pages/college.css");
+@import url("./pages/telecommunications.css");
+@import url("./pages/post.css");
+@import url("./pages/transport.css");
+@import url("./pages/radio_tv.css");
+@import url("./pages/laws.css");
+@import url("./pages/constitution.css");
+@import url("./pages/tariffs.css");
+@import url("./pages/reports.css");
+@import url("./pages/news.css");
+@import url("./pages/single_news.css");
+@import url("./pages/photogallery.css");
+@import url("./pages/video_gallery.css");
+@import url("./pages/single-gallery.css");
+@import url("./pages/announcements.css");
+@import url("./pages/single_announcement.css");
+@import url("./pages/contact-information.css");
+@import url("./pages/contact.css");
+@import url("./pages/apply.css");
+@import url("./pages/faq.css");
+@import url("./pages/reception_days.css");
+@import url("./pages/electronic_signature.css");
+@import url("./pages/website.css");
+@import url("./pages/domen.css");
+@import url("./pages/services_tariffs.css");
+@import url("./pages/information_request.css");

@@ -1,0 +1,159 @@
+.ethical_behavior {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(240px, 35vw, 420px);
+}
+
+.ethical_behavior::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hero-bg, url('/src/img/ethical_behavior-bg.png')) center/cover no-repeat;
+    transform: scale(1);
+    transition: transform .8s ease;
+    will-change: transform;
+    z-index: 0;
+}
+
+
+.ethical_behavior:hover::before {
+    transform: scale(1.12);
+}
+
+.ethical_behavior>* {
+    position: relative;
+    z-index: 1;
+}
+
+.ethical_behavior::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .08);
+    opacity: 0;
+    transition: opacity .35s ease;
+    z-index: 0;
+}
+
+.ethical_behavior:hover::after {
+    opacity: 1;
+}
+
+.ethical_behavior_section-main .title-flex {
+    margin: 20px 0;
+}
+
+.ethical_behavior_blur {
+    display: inline-block;
+    background: linear-gradient(0deg, rgba(232, 241, 246, 0.3), rgba(232, 241, 246, 0.3));
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    position: absolute;
+    left: 7%;
+    bottom: 8%;
+    padding: 20px;
+    color: var(--structureBg);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+.ehtical_behaviour_type {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--managementColor);
+}
+
+.ethical_content_blog {
+    margin: 80px 0 100px;
+}
+
+.ehtical_behaviour_name {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--managementBorderColor);
+    color: var(--projectColorActive);
+    transition: color .4s ease, border-color .2s ease;
+}
+
+.ehtical_behaviour_name:hover {
+    color: var(--managementColor);
+    color: rgb(1, 19, 65);
+    border-bottom-color: var(--managementColor);
+}
+
+.ehtical_behaviour_name:focus-visible {
+    outline: 2px solid var(--managementColor);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+
+.ehtical_behaviour_name.active {
+    border-bottom: 1px solid var(--managementColor);
+    color: var(--managementColor);
+
+}
+
+.ehtical_behaviour_content {
+    padding: 12px 0;
+}
+
+@media(max-width: 1200px) {
+    .ethical_behavior_blur {
+        white-space: normal;
+        inline-size: max-content;
+        max-width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 20px;
+        padding: 15px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .ethical_behavior_blur {
+        white-space: normal;
+        inline-size: max-content;
+        max-width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .ehtical_behaviour_title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ethical_behavior {
+        min-height: 260px;
+    }
+
+    .ethical_behavior_blur {
+        white-space: normal;
+        inline-size: max-content;
+        max-width: 92%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 20px;
+        padding: 12px;
+    }
+
+    .ethical_content_blog {
+        margin: 40px 0;
+    }
+
+    .ehtical_behaviour_type {
+        font-size: 16px;
+    }
+
+    .ehtical_behaviour_content {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+}

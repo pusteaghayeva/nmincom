@@ -1,0 +1,150 @@
+.management {
+    color: var(--projectColorActive);
+}
+
+.management-main-container .title-flex {
+    margin: 20px 0 80px;
+}
+
+.management-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.management-duty-flex {
+    display: flex;
+    align-items: center;
+}
+
+.management-line {
+    flex: 1;
+    height: 1px;
+    background: var(--managementBorderColor);
+}
+
+.management-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.management-duty {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 45px 0 72px;
+}
+
+.management-img-blog {
+    width: 222px;
+    height: 277px;
+}
+
+.management-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.management-content {
+    margin: 20px 0 20px;
+    width: 50%;
+}
+
+.management-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--projectColorActive);
+    transition: all .4s ease;
+}
+
+.management-name:hover,
+.deputy-ministers-name:hover {
+    color: var(--menuColor);
+    transition: all .4s ease;
+
+}
+
+.management-duty-about {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.deputy-ministers-img-blog {
+    width: 222px;
+    height: 198px;
+}
+
+.deputy-ministers-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 10px;
+}
+
+.deputy-ministers-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.deputy-ministers-name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: var(--projectColorActive);
+    transition: all .3s ease;
+}
+
+.deputy-ministers-duty {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .management-main-container .title-flex {
+        margin: 20px 0;
+    }
+
+    .management-title {
+        font-size: 24px;
+    }
+
+    .management-duty {
+        margin: 13px 0 40px;
+    }
+
+    .management-img-blog {
+        width: 100%;
+        height: auto;
+    }
+
+    .management-content {
+        width: 100%;
+    }
+
+    .management-name {
+        font-size: 20px;
+    }
+
+    .management-duty-about {
+        font-size: 18px;
+    }
+
+    .management-flex {
+        flex-direction: column;
+    }
+
+    .deputy-ministers-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin: 15px;
+    }
+}

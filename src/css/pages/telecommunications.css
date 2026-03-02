@@ -1,0 +1,138 @@
+.telecommunications-section {
+    margin: 80px 0;
+}
+
+.telecommunication_bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/src/img/telecommunication.png') center/cover no-repeat;
+    transform: scale(1);
+    transition: transform .8s ease;
+    will-change: transform;
+    z-index: 0;
+}
+
+.telecommunication_bg {
+    background-size: cover;
+    background-position: center;
+}
+
+.telecommunication-button {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    height: 72px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid var(--governmentBg);
+    backdrop-filter: blur(4px);
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.telecommunication-type {
+    width: 212px;
+    font-size: 20px;
+    font-weight: 500;
+    transition:
+        color .3s ease,
+        letter-spacing .3s ease;
+}
+
+.telecommunication-button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        transform .3s ease,
+        opacity .3s ease,
+        background .3s ease;
+}
+
+.telecommunication-button:hover span:first-child {
+    transform: scale(1.1);
+}
+
+.telecommunication-button:hover .telecommunication-type {
+    color: var(--governmentBg);
+    letter-spacing: 0.3px;
+}
+
+.telecommunication-button:hover span:last-child {
+    transform: translateX(8px);
+    opacity: 1;
+}
+
+.telecommunication-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+            rgba(33, 87, 255, 1),
+            rgba(120, 160, 255, 1));
+    transition: width .4s ease;
+}
+
+.telecommunication-button:hover::after {
+    width: 100%;
+}
+
+.telecommunication-button.active {
+    background: rgba(67, 120, 255, 0.5);
+    color: var(--structureBg);
+}
+
+.telecommunication-content {
+    margin: 20px 0;
+}
+
+.tariffs-img {
+    width: 24px;
+    height: 24px;
+}
+
+@media(max-width: 1200px) {
+    .telecommunication-button {
+        width: 100%;
+    }
+
+    .telecommunication-type {
+        font-size: 18px;
+    }
+
+    .tariffs-img {
+        font-size: 16px;
+    }
+
+    .telecommunications-section {
+        margin: 60px 0;
+    }
+}
+
+@media(max-width: 769px) {
+    .telecommunications-section {
+        margin: 30px 0;
+    }
+
+    .telecommunication-button {
+        width: 100%;
+    }
+
+    .telecommunication-type {
+        font-size: 16px;
+    }
+
+    .tariffs-img {
+        font-size: 14px;
+    }
+}

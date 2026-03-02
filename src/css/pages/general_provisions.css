@@ -1,0 +1,25 @@
+.general_provisions_title {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--governmentBg);
+    margin: 10px 0;
+}
+
+.general_provisions_content {
+    padding: 0;
+}
+
+.general_provisions_left {
+    padding: 0 30px;
+}
+
+@media(max-width: 768px) {
+    .general_provisions_title {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    .general_provisions_left {
+        padding: 0;
+    }
+}

@@ -1,0 +1,20 @@
+.reception_days_bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/src/img/reception_days_bg.png') center/cover no-repeat;
+    transform: scale(1);
+    transition: transform .8s ease;
+    will-change: transform;
+    z-index: 0;
+}
+
+.reception_days {
+    margin: 60px 0 100px;
+}
+
+@media (max-width: 768px) {
+    .reception_days {
+        margin: 30px 0 60px;
+    }
+}

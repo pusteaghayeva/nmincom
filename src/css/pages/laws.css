@@ -1,0 +1,133 @@
+.laws {
+    margin-bottom: 150px;
+}
+
+
+.laws_bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/src/img/laws_bg.png') center/cover no-repeat;
+    transform: scale(1);
+    transition: transform .8s ease;
+    will-change: transform;
+    z-index: 0;
+}
+
+
+.laws-section {
+    margin: 80px 0;
+}
+
+.laws-blog {
+    width: 100%;
+    border: 1px solid var(--managementBorderColor);
+    border-radius: 8px;
+    margin: 20px 0;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease;
+}
+
+.laws-blog:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    border-color: var(--managementColor);
+    background-color: rgba(67, 120, 255, 0.03);
+}
+
+.laws-date {
+    padding: 20px 50px 8px;
+}
+
+.laws-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin: 8px 0;
+}
+
+.laws-pdf-img {
+    width: 32px;
+    height: 32px;
+    opacity: 0.85;
+    transition: filter .3s ease, opacity .3s ease, transform .3s ease;
+}
+
+.laws-blog:hover .laws-pdf-img {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.laws-name {
+    width: 100%;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--projectColorActive);
+    transition: color .3s ease;
+}
+
+.laws-blog:hover .laws-name {
+    color: rgb(5, 34, 106);
+}
+
+.laws-icons-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+    transition: opacity .3s ease;
+}
+
+.laws-blog:hover .laws-icons-flex {
+    opacity: 1;
+}
+
+.laws-icon-bg-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(67, 120, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+
+    transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+
+.pdf-view {
+    width: 20px;
+    height: 20px;
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.laws-icon-bg-circle.view:hover {
+    background: rgba(67, 120, 255, 0.15);
+    box-shadow: 0 0 0 6px rgba(67, 120, 255, 0.12);
+}
+
+.laws-icon-bg-circle.view:hover .pdf-view {
+    transform: scale(1.15);
+    filter: brightness(1.1);
+}
+
+.laws-icon-bg-circle.download:hover {
+    background: rgba(33, 87, 255, 0.18);
+    transform: translateY(2px);
+    box-shadow: 0 8px 18px rgba(33, 87, 255, 0.20);
+}
+
+.laws-icon-bg-circle.download:hover .pdf-view {
+    transform: translateY(2px);
+}
+
+@media(max-width: 768px) {
+    .laws-flex {
+        flex-direction: column;
+    }
+
+    .laws-date {
+        text-align: center;
+    }
+}

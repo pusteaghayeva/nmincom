@@ -1,0 +1,208 @@
+.title-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fontInter);
+  margin: 20px 0 80px;
+}
+
+.management-about-main-container {
+  margin: 80px 0;
+}
+
+.title-first {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--projectColorActive);
+  transition: color .2s ease;
+}
+
+.title-first.level-1 {
+  opacity: .45;
+}
+
+.title-first.level-2 {
+  opacity: .65;
+  font-weight: 400;
+}
+
+.title-first.level-3 {
+  opacity: .8;
+  font-weight: 400;
+}
+
+.title-first.level-4 {
+  opacity: 1;
+  font-weight: 600;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.title-flex span {
+  font-size: 10px;
+  color: var(--governmentBg);
+  margin: 0 4px;
+}
+
+.management-about-content {
+  margin-left: 48px;
+}
+
+.management-about-img-blog {
+  width: 100%;
+  max-width: 280px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.management-about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.management-about-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--projectColorActive);
+}
+
+.management-about-duty {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 8px 0 20px;
+}
+
+.management-about-social-ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid var(--management-aboutBorderColor);
+  border-bottom: 1px solid var(--management-aboutBorderColor);
+  padding: 8px 0;
+}
+
+.management-about-social-ul li {
+  margin-right: 20px;
+}
+
+.management-about-social-ul li a img {
+  width: 24px;
+  height: 24px;
+}
+
+.management-about-text {
+  margin: 40px 0;
+}
+
+.management-about-duty-type {
+  margin: 52px 0 28px;
+}
+
+.management-about-type {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--projectColorActive);
+  margin: 8px 0;
+}
+
+.deputy-ministers.active {
+  color: var(--managementColor);
+}
+
+.management-about-type-name.active {
+  color: var(--managementColor);
+
+}
+
+.management-about-type-name {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--management-aboutColor);
+}
+
+
+
+.deputy-ministers {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--projectColorActive);
+  margin: 4px 0;
+}
+
+@media (min-width: 992px) {
+  .management-about-content {
+    margin-left: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .management-about-main-container {
+    margin: 40px 0;
+  }
+
+  .title-flex {
+    margin: 20px 0;
+  }
+
+  .management-about-duty-type {
+    margin: 10px 0;
+  }
+
+  .management-about-duty {
+    font-size: 18px;
+  }
+
+  .management-about-name {
+    margin-top: 15px;
+  }
+
+  .management-about-content {
+    margin-left: 0px;
+  }
+
+  .management-about-type {
+    font-size: 22px;
+  }
+
+  .management-about-social-ul li a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .title-first.level-4 {
+    width: 100%;
+  }
+
+  .title-flex {
+    gap: 1px;
+  }
+}
+
+
+@media (max-width: 991.98px) {
+  .management-about-img-blog {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .management-about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .title-first.level-4 {
+    width: 100%;
+  }
+
+  .title-flex {
+    gap: 3px;
+  }
+}

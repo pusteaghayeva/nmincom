@@ -1,0 +1,264 @@
+.electronic_signature-section {
+    margin: 60px 0;
+}
+
+.electronic_signature_title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--projectColorActive);
+    margin-bottom: 14px;
+
+}
+
+.electronic_signature_about {
+    margin-top: 16px;
+}
+
+.signature-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--governmentBg);
+    text-align: center;
+    margin: 40px 0;
+}
+
+.first-signature-title {
+    margin: 40px 0 20px;
+}
+
+.second-signature-title {
+    color: var(--managementColor);
+}
+
+.last-signature-title {
+    margin: 80px 0 40px;
+}
+
+.signature-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, .65);
+    text-align: left;
+}
+
+
+.signature-fees {
+    margin: 20px 0;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+
+.fee-card {
+    background: var(--bgColor);
+    border: 2px solid var(--structureBg);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    width: 290px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.fee-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(47, 102, 255, .00), rgba(47, 102, 255, .10), rgba(47, 102, 255, .00));
+    transform: translateX(-120%);
+    transition: transform .65s ease;
+}
+
+.fee-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .10);
+    border-color: rgba(47, 102, 255, .25);
+}
+
+.fee-card:hover::before {
+    transform: translateX(120%);
+}
+
+.fee-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    margin-bottom: 14px;
+}
+
+.fee-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: var(--structureBg);
+}
+
+.fee-check {
+    color: var(--managementColor);
+    font-size: 18px;
+}
+
+.fee-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--managementColor);
+}
+
+.signature-docs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 18px 0 34px;
+}
+
+.doc-card {
+    background: rgba(67, 120, 255, 0.05);
+    border-radius: 16px;
+    min-height: 92px;
+    height: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--projectColorActive);
+    position: relative;
+    overflow: hidden;
+    transition:
+        background-color .35s ease,
+        border-color .35s ease,
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.doc-card:hover {
+    background: rgba(47, 102, 255, .35);
+    border-color: rgba(67, 120, 255, 0.5);
+    background: rgba(67, 120, 255, 0.5);
+
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .10);
+}
+
+.doc-card:hover .doc-title {
+    color: rgba(0, 0, 0, .75);
+}
+
+.doc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .10);
+    background: rgba(67, 120, 255, 0.5);
+}
+
+.doc-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    text-align: center;
+    width: 85%;
+    text-decoration: underline;
+}
+
+.doc-icon {
+    font-size: 26px;
+    color: var(--managementColor);
+}
+
+.doc-card:hover .doc-icon {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.signature-programs {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0 10px;
+}
+
+.doc-card--single {
+    width: 240px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.doc-card--single .doc-title {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 992px) {
+    .signature-fees {
+        flex-wrap: wrap;
+    }
+
+    .signature-docs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .signature-text {
+        max-width: 100%;
+    }
+
+    .fee-card {
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .doc-title {
+        width: 90%;
+    }
+
+    .doc-card {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .signature-fees {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 576px) {
+    .electronic_signature_title {
+        font-size: 22px;
+    }
+
+    .signature-fees {
+        flex-direction: column;
+    }
+
+    .signature-docs {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-card {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .doc-card--single {
+        width: 100%;
+    }
+
+    .doc-title {
+        width: 90%;
+    }
+
+    .signature-fees {
+        grid-template-columns: 1fr;
+    }
+}

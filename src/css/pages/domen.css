@@ -1,0 +1,255 @@
+.domen-avantages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.domen-avantages-blog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--bgColor);
+    border: 2px solid var(--structureBg);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+.domen-avantages-blog:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .14);
+    border-color: var(--managementColor);
+    cursor: pointer;
+}
+
+.domen-avantages-blog::after {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity .45s ease;
+    background:
+        linear-gradient(to right, rgba(0, 0, 0, .06) 1px, transparent 1px) 0 0 / 36px 100%,
+        linear-gradient(to bottom, rgba(0, 0, 0, .06) 1px, transparent 1px) 0 0 / 100% 28px;
+    z-index: 0;
+}
+
+.domen-avantages-blog:hover::after {
+    opacity: 1;
+}
+
+.avantages-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    position: relative;
+    z-index: 3;
+}
+
+.domen-avantages-blog1 {
+    width: 400px;
+    height: 407px;
+}
+
+.domen-avantages-blog2 {
+    width: 400px;
+    height: 307px;
+}
+
+.domen-avantages-blog3 {
+    width: 400px;
+    height: 204px;
+}
+
+.domen-img1 {
+    width: 263px;
+    height: 263px;
+    object-fit: cover;
+}
+
+.domen-img2 {
+    width: 138px;
+    height: 163px;
+}
+
+.domen-img3 {
+    width: 60px;
+    height: 60px;
+}
+
+.domen-avantages-blog img {
+    position: relative;
+    z-index: 2;
+    transition: transform .45s ease, filter .45s ease;
+}
+
+.domen-avantages-blog:hover img {
+    transform: scale(1.03);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .18));
+}
+
+.domain-tariffs {
+    background: radial-gradient(100% 121.69% at 5.3% 0%, #E8F1F6 0%, #FFFFFF 100%);
+    padding: 40px 0;
+}
+
+.domain-pricing {
+    padding: 30px 0 10px;
+}
+
+.domain-pricing-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+}
+
+.domain-card {
+    width: 216px;
+    height: 164px;
+    border-radius: 12px;
+    background: rgba(67, 120, 255, 0.05);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease, background-color .35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.domain-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--projectColorActive);
+    margin-left: 8px;
+}
+
+.domain-price {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--projectColorActive);
+}
+
+.domain-card::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -60%;
+    width: 40%;
+    height: 180%;
+    transform: rotate(18deg);
+    opacity: 0;
+    transition: left .75s ease, opacity .35s ease;
+    background: rgba(255, 255, 255, .55);
+    filter: blur(1px);
+}
+
+.domain-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .12);
+    border-color: #2f66ff;
+    background: #e8f1ff;
+}
+
+.domain-card:hover::before {
+    left: 130%;
+    opacity: 1;
+}
+
+.domain-flex i {
+    color: var(--managementColor);
+    font-size: 20px;
+}
+
+.domain-card:hover .domain-flex i {
+    transform: translateY(-1px) scale(1.06);
+    opacity: 1;
+}
+
+.domain-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.domain-once-fee {
+    margin: 40px auto 0;
+    width: fit-content;
+    padding: 14px 22px;
+    border-radius: 12px;
+    background: #eaf1ff;
+    color: rgba(0, 0, 0, .70);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+    .domain-card {
+        width: 200px;
+        height: 156px;
+    }
+
+    .domen-avantages-blog2 {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .domain-pricing-list {
+        gap: 18px;
+    }
+
+    .domain-card {
+        width: 210px;
+        height: 154px;
+    }
+
+    .domen-avantages {
+        flex-direction: column;
+    }
+
+    .domen-avantages-blog {
+        margin: 10px auto;
+    }
+
+    .domen-avantages-blog1,
+    .domen-avantages-blog2,
+    .domen-avantages-blog3 {
+        width: 100%;
+        height: auto;
+    }
+
+    .domen-avantages-blog img {
+        margin-top: 15px;
+    }
+
+    .domain-tariffs {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .domain-card {
+        width: 100%;
+        max-width: 360px;
+        height: 150px;
+    }
+
+    .domain-once-fee {
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+    }
+}

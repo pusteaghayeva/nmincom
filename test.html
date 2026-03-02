@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="az">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tarix</title>
+
+    <style>
+        :root {
+            --bg: #eaf3f7;
+            /* figma fonuna yaxın */
+            --white: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --primary: #2f69ff;
+            --line: #b7cdfc;
+
+            --radius: 10px;
+            --container: 980px;
+
+            /* JS bu dəyişənləri doldurur */
+            --cx: 160px;
+            /* connector X */
+            --cy: 110px;
+            /* connector Y (start) */
+            --ch: 70px;
+            /* connector vertical height */
+            --cw: 640px;
+            /* connector horizontal width */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .wrap {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 52px 20px 80px;
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 700;
+            margin: 0 0 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .subtitle {
+            margin: 0 0 26px;
+            color: var(--muted);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Year buttons row (Figma-ya yaxın) */
+        .years {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 26px;
+            align-items: center;
+            margin-bottom: 26px;
+        }
+
+        .yearBtn {
+            height: 44px;
+            border-radius: 8px;
+            border: 1px solid #d8e6f6;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 160ms ease;
+            position: relative;
+            user-select: none;
+        }
+
+        .yearBtn:hover {
+            border-color: #bcd3ff;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .yearBtn .chev {
+            color: var(--primary);
+            font-size: 14px;
+            transition: transform 160ms ease;
+            transform: translateY(1px);
+        }
+
+        .yearBtn.is-active {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 10px 28px rgba(47, 105, 255, 0.10);
+        }
+
+        .yearBtn.is-active .chev {
+            transform: rotate(180deg) translateY(-1px);
+        }
+
+        /* CONTENT AREA */
+        .content {
+            position: relative;
+            padding-top: 12px;
+            min-height: 260px;
+        }
+
+        /* Figma-dakı L-xətt: (aktiv ilin altından düşür, sonra sağa gedir) */
+        .connector {
+            position: absolute;
+            left: var(--cx);
+            top: var(--cy);
+            width: 2px;
+            height: var(--ch);
+            background: var(--line);
+            border-radius: 2px;
+        }
+
+        .connector::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc(var(--ch) - 2px);
+            width: var(--cw);
+            height: 2px;
+            background: var(--line);
+            border-radius: 2px;
+        }
+
+        /* Panels */
+        .panel {
+            display: none;
+            padding-top: 62px;
+            /* xəttdən sonra mətni aşağı salır (Figma spacing) */
+        }
+
+        .panel.is-active {
+            display: block;
+        }
+
+        /* Text block (Figma-ya yaxın genişlik/oxunaqlıq) */
+        .textBlock {
+            max-width: 720px;
+            margin-left: 118px;
+            /* soldan boşluq (xəttin altına düşür) */
+            color: #0b1220;
+            font-size: 13px;
+            line-height: 1.75;
+            font-weight: 500;
+            opacity: 0.92;
+        }
+
+        /* Responsive */
+        @media (max-width: 860px) {
+            .years {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .textBlock {
+                margin-left: 0;
+                max-width: 100%;
+            }
+
+            .panel {
+                padding-top: 26px;
+            }
+
+            .connector {
+                display: none;
+            }
+
+            /* mobil-də Figma kimi sadələşdir */
+        }
+
+        @media (max-width: 520px) {
+            .years {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap" id="historyRoot">
+        <h1 class="title">Tarix</h1>
+        <p class="subtitle">Fəaliyyətlər və inkişaf xronologiyası</p>
+
+        <div class="years" id="yearsRow">
+            <button class="yearBtn" data-year="2023" type="button">2023 <span class="chev"><i
+                        class="fa-solid fa-chevron-down"></i></span></button>
+            <button class="yearBtn" data-year="2024" type="button">2024 <span class="chev">▾</span></button>
+            <button class="yearBtn" data-year="2025" type="button">2025 <span class="chev">▾</span></button>
+            <button class="yearBtn" data-year="2026" type="button">2026+ <span class="chev">▾</span></button>
+        </div>
+
+        <section class="content" id="contentArea">
+            <div class="connector" id="connector" aria-hidden="true"></div>
+
+            <div class="panel" data-panel="2023">
+                <div class="textBlock" data-text>
+                    <p>
+                        2023-cü il 31 oktyabr tarixində Naxçıvan Muxtar Respublikası Ali Məclisi sədrinin
+                        Sərəncamı əsasında Naxçıvan Muxtar Respublikasının Rəqəmsal İnkişaf və Nəqliyyat
+                        Nazirliyi və “Naxçıvan Muxtar Respublikasının Dövlət Nəqliyyat Xidməti” publik hüquqi
+                        şəxsi birləşdirilərək onların əsasında Naxçıvan Muxtar Respublikasının Rəqəmsal İnkişaf
+                        və Nəqliyyat Nazirliyi yaradılıb. Məqsəd muxtar respublikada rəqəmsallaşdırmanın və
+                        innovasiyaların tətbiqinin genişləndirilməsi, rabitə və informasiya texnologiyalarının
+                        inkişafının
+                        təkmilləşdirilməsidir.
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel" data-panel="2024">
+                <div class="textBlock" data-text>
+                    <p>
+                        2024-cü ildə rəqəmsal xidmətlərin genişləndirilməsi və daxili proseslərin optimallaşdırılması
+                        üzrə
+                        tədbirlər həyata keçirilmişdir. (Burada səndə olan real mətnləri yerləşdirəcəksən.)
+                    </p>
+                    <p>
+                        Bu hissə uzansa da xətt pozulmayacaq — xətt ölçüləri JS ilə avtomatik yenidən hesablanır.
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel" data-panel="2025">
+                <div class="textBlock" data-text>
+                    <p>
+                        2025-ci il üzrə fəaliyyətlər… (Figma mətnlərini əlavə et)
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel" data-panel="2026">
+                <div class="textBlock" data-text>
+                    <p>
+                        2026+ plan və prioritetlər… (Figma mətnlərini əlavə et)
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        (function () {
+            const root = document.getElementById('historyRoot');
+            const yearsRow = document.getElementById('yearsRow');
+            const buttons = Array.from(yearsRow.querySelectorAll('.yearBtn'));
+            const panels = Array.from(document.querySelectorAll('.panel'));
+            const connector = document.getElementById('connector');
+            const contentArea = document.getElementById('contentArea');
+
+            function pickInitialYear() {
+                const now = new Date().getFullYear(); // 2026
+                // exact match varsa
+                const exact = buttons.find(b => Number(b.dataset.year) === now);
+                if (exact) return exact.dataset.year;
+
+                // yoxdursa ən yaxın aşağı ili seç (2026+ fallback)
+                const years = buttons.map(b => Number(b.dataset.year)).sort((a, b) => a - b);
+                const y = years.filter(v => v <= now).pop() ?? years[0];
+                return String(y);
+            }
+
+            function activate(year) {
+                buttons.forEach(b => b.classList.toggle('is-active', b.dataset.year === year));
+                panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === year));
+                // xətti hesabla
+                requestAnimationFrame(recalcConnector);
+            }
+
+            function recalcConnector() {
+                // mobil ölçüdə connector gizlidir, hesablamaya ehtiyac yoxdur
+                const isHidden = getComputedStyle(connector).display === 'none';
+                if (isHidden) return;
+
+                const activeBtn = buttons.find(b => b.classList.contains('is-active'));
+                const activePanel = panels.find(p => p.classList.contains('is-active'));
+                if (!activeBtn || !activePanel) return;
+
+                const text = activePanel.querySelector('[data-text]');
+                if (!text) return;
+
+                const contentRect = contentArea.getBoundingClientRect();
+                const btnRect = activeBtn.getBoundingClientRect();
+                const textRect = text.getBoundingClientRect();
+
+                // X: aktiv düymənin mərkəzi (contentArea içində)
+                const cx = (btnRect.left + btnRect.width / 2) - contentRect.left;
+
+                // Y: düymənin altından bir az aşağı
+                const cy = (btnRect.bottom - contentRect.top) + 10;
+
+                // Vertical height: textin başladığı yerə qədər
+                // panel padding-top var, ona görə textRect.top-u hədəf alırıq
+                let ch = (textRect.top - contentRect.top) - cy;
+
+                // Minimum/limitlər
+                if (ch < 18) ch = 18;
+                const maxH = contentArea.clientHeight - 20;
+                if (ch > maxH) ch = maxH;
+
+                // Horizontal width: sağa qədər (Figma kimi uzun)
+                const rightPadding = 40;
+                let cw = (contentArea.clientWidth - cx - rightPadding);
+                if (cw < 120) cw = 120;
+
+                root.style.setProperty('--cx', cx + 'px');
+                root.style.setProperty('--cy', cy + 'px');
+                root.style.setProperty('--ch', ch + 'px');
+                root.style.setProperty('--cw', cw + 'px');
+            }
+
+            // events
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => activate(btn.dataset.year));
+            });
+
+            window.addEventListener('resize', () => requestAnimationFrame(recalcConnector));
+
+            // init
+            activate(pickInitialYear());
+        })();
+    </script>
+</body>
+
+</html>

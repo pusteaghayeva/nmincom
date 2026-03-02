@@ -1,0 +1,31 @@
+:root {
+  --menuColor: #2157ff;
+  --searchBg: #e8f1f6;
+  --bgColor: rgb(231, 241, 246);
+  --whiteColor: #fff;
+  --actualMenuColor: #25262a;
+  --rightIConColor: #575757;
+  --rightIconLightColor: #9c9c9c;
+  --fontInter: "Inter", sans-serif;
+  --fontRoboto: "Roboto", sans-serif;
+  --platformColor: #219bff;
+  --blackColor: #000;
+  --borderColor: #4378FF;
+  --governmentBg: rgba(33, 87, 255, 1);
+  --projectColorActive: rgba(37, 38, 42, 1);
+  --projectColor: rgba(156, 156, 156, 1);
+  --managementBorderColor: rgba(220, 220, 220, 1);
+  --managementColor: rgba(67, 120, 255, 1);
+  --structureBg: rgba(255, 255, 255, 1);
+  --structureRegulationBg: rgba(232, 241, 246, 1);
+  --tariffsScrollColor: rgba(229, 229, 234, 1);
+  --singelNewsDateColor: rgba(77, 80, 88, 1);
+  --announcementDateColor: rgba(87, 87, 87, 1);
+  --bg: #eaf3f7;
+  --line: #b7cdfc;
+  --radius: 10px;
+  --cx: 160px;
+  --btnOffsetY: -10px;
+  --ch: 70px;
+  --cw: 640px;
+}

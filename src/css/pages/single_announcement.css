@@ -1,0 +1,21 @@
+.single-announcement {
+    margin: 60px 0 100px;
+}
+
+.single-announcement-title {
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--projectColorActive);
+}
+
+@media(max-width: 768px) {
+    .single-announcement {
+        margin: 30px 0 50px;
+    }
+
+    .single-announcement-title {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+}
