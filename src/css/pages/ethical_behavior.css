@@ -8,7 +8,6 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: var(--hero-bg, url('/src/img/ethical_behavior-bg.png')) center/cover no-repeat;
     transform: scale(1);
     transition: transform .8s ease;
     will-change: transform;
@@ -39,9 +38,6 @@
     opacity: 1;
 }
 
-.ethical_behavior_section-main .title-flex {
-    margin: 20px 0;
-}
 
 .ethical_behavior_blur {
     display: inline-block;
@@ -66,7 +62,7 @@
 }
 
 .ethical_content_blog {
-    margin: 80px 0 100px;
+    padding: 80px 0 100px;
 }
 
 .ehtical_behaviour_name {
@@ -84,15 +80,15 @@
 }
 
 .ehtical_behaviour_name:focus-visible {
-    outline: 2px solid var(--managementColor);
+    outline: 2px solid var(--governmentBg);
     outline-offset: 4px;
     border-radius: 6px;
 }
 
 
 .ehtical_behaviour_name.active {
-    border-bottom: 1px solid var(--managementColor);
-    color: var(--managementColor);
+    border-bottom: 1px solid var(--governmentBg);
+    color: var(--mainColor);
 
 }
 

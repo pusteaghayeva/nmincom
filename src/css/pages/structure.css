@@ -58,7 +58,7 @@
     font-size: 14px;
     font-weight: 400;
     border-radius: 8px;
-    background-color: var(--structureRegulationBg);
+    background-color: var(--mainColor);
     padding: 12px;
     margin: 12px 0;
     width: 100%;
@@ -66,17 +66,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
     transition: background-color .45s ease, transform .45s ease, color .45s ease, box-shadow .45s ease;
     will-change: transform;
+    color: var(--governmentBg);
 }
 
 
 
 .structure-regulation:hover {
-    background-color: rgba(232, 241, 246, 1);
+    background-color: var(--mainColor);
     transform: translateX(4px);
-    color: var(--projectColorActive);
+    color: var(--whiteColor);
 }
 
 .structure-regulation:hover .regulation-icon {
@@ -86,7 +86,7 @@
 
 .regulation-icon {
     font-size: 20px;
-    color: var(--managementColor);
+    color: var(--governmentBg);
     margin-right: 8px;
     transition: transform .45s ease, color .45s ease;
 

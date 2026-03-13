@@ -1,12 +1,11 @@
 .telecommunications-section {
-    margin: 80px 0;
+    padding: 50px 0;
 }
 
 .telecommunication_bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('../../img/telecommunication.png') center/cover no-repeat;
     transform: scale(1);
     transition: transform .8s ease;
     will-change: transform;
@@ -16,6 +15,7 @@
 .telecommunication_bg {
     background-size: cover;
     background-position: center;
+        background: url('../../img/telecommunication.png') center/cover no-repeat;
 }
 
 .telecommunication-button {
@@ -29,12 +29,13 @@
     padding: 20px;
     margin: 20px 0;
     border-radius: 8px;
-    border: 1px solid var(--governmentBg);
+    border: 1px solid var(--governmentText);
     backdrop-filter: blur(4px);
     transition:
         background .3s ease,
         transform .3s ease,
         box-shadow .3s ease;
+        color: var(--governmentText);
 }
 
 .telecommunication-type {
@@ -61,7 +62,7 @@
 }
 
 .telecommunication-button:hover .telecommunication-type {
-    color: var(--governmentBg);
+    color: var(--goverwnmentBg);
     letter-spacing: 0.3px;
 }
 
@@ -78,8 +79,8 @@
     width: 0;
     height: 3px;
     background: linear-gradient(90deg,
-            rgba(33, 87, 255, 1),
-            rgba(120, 160, 255, 1));
+            rgb(49, 86, 196),
+            rgb(98, 130, 204));
     transition: width .4s ease;
 }
 
@@ -88,8 +89,8 @@
 }
 
 .telecommunication-button.active {
-    background: rgba(67, 120, 255, 0.5);
-    color: var(--structureBg);
+    background-color: var(--telecomActive);
+    color: var(--whiteColor);
 }
 
 .telecommunication-content {
@@ -114,14 +115,12 @@
         font-size: 16px;
     }
 
-    .telecommunications-section {
-        margin: 60px 0;
-    }
+
 }
 
 @media(max-width: 769px) {
     .telecommunications-section {
-        margin: 30px 0;
+        margin:  0;
     }
 
     .telecommunication-button {

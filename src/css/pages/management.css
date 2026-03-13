@@ -3,9 +3,11 @@
 }
 
 .management-main-container .title-flex {
-    margin: 20px 0 80px;
+    padding: 20px 0 80px;
 }
-
+.management-about{
+    padding-top: 0px;
+}
 .management-title {
     font-size: 28px;
     font-weight: 700;
@@ -37,7 +39,7 @@
 
 .management-img-blog {
     width: 222px;
-    height: 277px;
+    height: auto;
 }
 
 .management-img {
@@ -74,7 +76,7 @@
 
 .deputy-ministers-img-blog {
     width: 222px;
-    height: 198px;
+    height: auto;
 }
 
 .deputy-ministers-flex {
@@ -107,7 +109,7 @@
 
 @media (max-width: 768px) {
     .management-main-container .title-flex {
-        margin: 20px 0;
+        padding: 20px 0;
     }
 
     .management-title {
@@ -119,7 +121,7 @@
     }
 
     .management-img-blog {
-        width: 100%;
+        width: 300px;
         height: auto;
     }
 

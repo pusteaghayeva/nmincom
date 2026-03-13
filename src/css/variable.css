@@ -1,6 +1,8 @@
 :root {
-  --menuColor: #2157ff;
-  --searchBg: #e8f1f6;
+  --menuColor: #1d1d1f;
+  --mainColor: rgba(0, 11, 109, 1);
+  --headerBorderColor: rgba(241, 245, 248, 1);
+  --searchBg: rgba(255, 255, 255, 0.8);
   --bgColor: rgb(231, 241, 246);
   --whiteColor: #fff;
   --actualMenuColor: #25262a;
@@ -11,7 +13,10 @@
   --platformColor: #219bff;
   --blackColor: #000;
   --borderColor: #4378FF;
-  --governmentBg: rgba(33, 87, 255, 1);
+  --telecomActive: rgba(67, 120, 255, 0.5);
+  --governmentBg: rgb(244, 249, 254);
+  --governmentText: rgba(33, 87, 255, 1);
+  --governmentColor: #0F7EF5;
   --projectColorActive: rgba(37, 38, 42, 1);
   --projectColor: rgba(156, 156, 156, 1);
   --managementBorderColor: rgba(220, 220, 220, 1);
@@ -29,5 +34,11 @@
   --ch: 70px;
   --cw: 640px;
   --headerH: 160px;
+  --langColor: rgba(26, 26, 26, 1);
+  --menuSearchColor: #e6ebf1;
+  --headerH: 0px;
+  --govH: 0px;
+  --headerMainH: 0px;
+  --headerTotalH: 0px;
 
 }

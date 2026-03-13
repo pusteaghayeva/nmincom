@@ -1,8 +1,3 @@
-.laws {
-    margin-bottom: 150px;
-}
-
-
 .laws_bg::before {
     content: "";
     position: absolute;
@@ -21,7 +16,7 @@
 
 .laws-blog {
     width: 100%;
-    border: 1px solid var(--managementBorderColor);
+    border: 1px solid var(--menuColor);
     border-radius: 8px;
     margin: 20px 0;
     transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease;

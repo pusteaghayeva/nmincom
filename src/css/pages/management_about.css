@@ -3,17 +3,21 @@
   align-items: center;
   gap: 8px;
   font-family: var(--fontInter);
-  margin: 20px 0 80px;
+  padding: 20px 0;
 }
 
 .management-about-main-container {
-  margin: 80px 0;
+  padding: 2px 0 80px;
+}
+
+.management-about-duty-type-2 {
+  margin-bottom: 20px;
 }
 
 .title-first {
   font-size: 12px;
   font-weight: 300;
-  color: var(--projectColorActive);
+  color: var(--mainColor);
   transition: color .2s ease;
 }
 
@@ -42,7 +46,7 @@
 
 .title-flex span {
   font-size: 10px;
-  color: var(--governmentBg);
+  color: var(--mainColor);
   margin: 0 4px;
 }
 
@@ -53,7 +57,7 @@
 .management-about-img-blog {
   width: 100%;
   max-width: 280px;
-  height: 280px;
+  height: auto;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -142,14 +146,7 @@
 }
 
 @media (max-width: 768px) {
-  .management-about-main-container {
-    margin: 40px 0;
-  }
-
-  .title-flex {
-    margin: 20px 0;
-  }
-
+ 
   .management-about-duty-type {
     margin: 10px 0;
   }
@@ -187,9 +184,12 @@
 
 @media (max-width: 991.98px) {
   .management-about-img-blog {
-    max-width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
+  }
+
+  .management-about-content {
+    margin-left: 0;
+    margin-top: 10px;
   }
 
   .management-about-img {

@@ -1,19 +1,138 @@
+// (function () {
+//   const govBar = document.querySelector('.government_platform');
+//   const header = document.querySelector('.header-main');
+
+//   if (!header) return;
+
+//   function updateHeaderVars() {
+//     const govVisible =
+//       govBar && window.getComputedStyle(govBar).display !== 'none';
+
+//     const govH = govVisible ? govBar.offsetHeight : 0;
+//     const headerH = header.offsetHeight;
+
+//     document.documentElement.style.setProperty('--govH', `${govH}px`);
+//     document.documentElement.style.setProperty('--headerMainH', `${headerH}px`);
+//     document.documentElement.style.setProperty('--headerTotalH', `${govH + headerH}px`);
+//   }
+
+//   function handleScroll() {
+//     if (!govBar || window.getComputedStyle(govBar).display === 'none') {
+//       document.body.classList.add('gov-hidden');
+//       return;
+//     }
+
+//     if (window.scrollY > 10) {
+//       document.body.classList.add('gov-hidden');
+//     } else {
+//       document.body.classList.remove('gov-hidden');
+//     }
+//   }
+
+//   window.addEventListener('load', () => {
+//     updateHeaderVars();
+//     handleScroll();
+//   });
+
+//   window.addEventListener('resize', () => {
+//     updateHeaderVars();
+//     handleScroll();
+//   });
+
+//   window.addEventListener('scroll', handleScroll, { passive: true });
+
+//   updateHeaderVars();
+//   handleScroll();
+// })();
+
+(function () {
+  const govBar = document.querySelector('.government_platform');
+  const header = document.querySelector('.header-main');
+
+  if (!header) return;
+
+  function updateHeaderVars() {
+    const govExists = govBar && window.getComputedStyle(govBar).display !== 'none';
+    const govHidden = document.body.classList.contains('gov-hidden');
+
+    const govH = govExists ? Math.ceil(govBar.offsetHeight) : 0;
+    const headerH = Math.ceil(header.offsetHeight);
+
+    const visibleGovH = govExists && !govHidden ? govH : 0;
+    const searchTop = visibleGovH + headerH;
+
+    document.documentElement.style.setProperty('--govH', `${govH}px`);
+    document.documentElement.style.setProperty('--headerMainH', `${headerH}px`);
+    document.documentElement.style.setProperty('--headerTotalH', `${govH + headerH}px`);
+    document.documentElement.style.setProperty('--searchTop', `${searchTop}px`);
+  }
+
+  function handleScroll() {
+    if (!govBar || window.getComputedStyle(govBar).display === 'none') {
+      document.body.classList.add('gov-hidden');
+      updateHeaderVars();
+      return;
+    }
+
+    if (window.scrollY > 10) {
+      document.body.classList.add('gov-hidden');
+    } else {
+      document.body.classList.remove('gov-hidden');
+    }
+
+    updateHeaderVars();
+  }
+
+  window.addEventListener('load', handleScroll);
+  window.addEventListener('resize', handleScroll);
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  if (govBar && 'ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => {
+      updateHeaderVars();
+    });
+    ro.observe(govBar);
+  }
+
+  const collapseEl = document.getElementById('flush-collapseOne');
+  if (collapseEl) {
+    collapseEl.addEventListener('show.bs.collapse', updateHeaderVars);
+    collapseEl.addEventListener('shown.bs.collapse', updateHeaderVars);
+    collapseEl.addEventListener('hide.bs.collapse', updateHeaderVars);
+    collapseEl.addEventListener('hidden.bs.collapse', updateHeaderVars);
+  }
+
+  updateHeaderVars();
+  handleScroll();
+})();
+
 const searchIcons = document.querySelectorAll(".search-icon");
 const searchBg = document.querySelector(".search-bg");
 const closeBtn = document.querySelector(".search-close");
 let lastScrollY = 0;
+
 function openSearch() {
   lastScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-  window.scrollTo({ top: 0, behavior: "instant" });
+
+  const header = document.querySelector('.header-main');
+  const headerH = header ? Math.ceil(header.offsetHeight) : 82;
+
+  document.documentElement.style.setProperty('--headerMainH', `${headerH}px`);
+
   document.body.classList.add("search-open");
+  document.body.classList.add("gov-hidden"); // government gizlənsin
   searchBg.classList.add("search-menu-open");
   searchIcons.forEach((ic) => ic.classList.add("active"));
 }
-
 function closeSearch() {
   searchBg.classList.remove("search-menu-open");
   document.body.classList.remove("search-open");
   searchIcons.forEach((ic) => ic.classList.remove("active"));
+
+  if (window.scrollY <= 10) {
+    document.body.classList.remove("gov-hidden");
+  }
+
   window.scrollTo({ top: lastScrollY, behavior: "instant" });
 }
 
@@ -30,24 +149,29 @@ if (closeBtn) closeBtn.addEventListener("click", closeSearch);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeSearch();
 });
-// nav  fixed
- (function () {
-    const stickyEl = document.querySelector('.js-sticky');
-    if (!stickyEl) return;
 
-    const stickyAt = stickyEl.offsetTop; // istəsən 0 yazıb həmişə fixed edə bilərsən
+document.addEventListener("DOMContentLoaded", function () {
+  const langToggle = document.querySelector(".lang .dropdown-toggle");
+  const langWrap = document.querySelector(".lang .lang-dd");
 
-    function onScroll() {
-      const shouldStick = window.scrollY > stickyAt;
-      stickyEl.classList.toggle('sticky', shouldStick);
-      stickyEl.classList.toggle('is-sticky', shouldStick);
-      document.body.classList.toggle('has-sticky', shouldStick);
+  if (!langToggle || !langWrap) return;
+
+  function handleLangDropdownMode() {
+    if (window.innerWidth >= 768) {
+      langToggle.removeAttribute("data-bs-toggle");
+      langWrap.classList.remove("show");
+      const menu = langWrap.querySelector(".dropdown-menu");
+      if (menu) menu.classList.remove("show");
+      langToggle.setAttribute("aria-expanded", "false");
+    } else {
+      langToggle.setAttribute("data-bs-toggle", "dropdown");
     }
+  }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-  // footer navbar
+  handleLangDropdownMode();
+  window.addEventListener("resize", handleLangDropdownMode);
+});
+
 (() => {
   const nav = document.getElementById('footerNav');
   if(!nav) return;
@@ -77,8 +201,6 @@ document.addEventListener("keydown", (e) => {
   });
 })();
 
-
-// news1
 (function () {
   if (!window.jQuery) return;
   if (!jQuery.fn || !jQuery.fn.owlCarousel) return;
@@ -225,8 +347,6 @@ jQuery("#carousel").owlCarousel({
     }
   }
 });
-
-// layiheler
 $(function () {
   const $section = $("#projectsSection");
   const $owl = $section.find("#projects-carousel");
@@ -321,7 +441,6 @@ $(function () {
   });
 });
 
-// other owl-carousel
 jQuery("#useful-carousel").owlCarousel({
   autoplay: true,
   rewind: false, /* use rewind if you don't want loop */
@@ -351,9 +470,9 @@ jQuery("#useful-carousel").owlCarousel({
   }
 });
 
-// back to top
 (function ($) {
   "use strict";
+
   $(".switch").on("click", function () {
     if ($("body").hasClass("light")) {
       $("body").removeClass("light");
@@ -365,40 +484,51 @@ jQuery("#useful-carousel").owlCarousel({
   });
 
   $(document).ready(function () {
-    "use strict";
-
 
     var progressPath = document.querySelector(".progress-wrap path");
-    var pathLength = progressPath.getTotalLength();
-    progressPath.style.transition = progressPath.style.WebkitTransition =
-      "none";
-    progressPath.style.strokeDasharray = pathLength + " " + pathLength;
-    progressPath.style.strokeDashoffset = pathLength;
-    progressPath.getBoundingClientRect();
-    progressPath.style.transition = progressPath.style.WebkitTransition =
-      "stroke-dashoffset 10ms linear";
-    var updateProgress = function () {
-      var scroll = $(window).scrollTop();
-      var height = $(document).height() - $(window).height();
-      var progress = pathLength - (scroll * pathLength) / height;
-      progressPath.style.strokeDashoffset = progress;
-    };
-    updateProgress();
-    $(window).scroll(updateProgress);
+
+    if (progressPath) {
+
+      var pathLength = progressPath.getTotalLength();
+
+      progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+      progressPath.style.strokeDasharray = pathLength + " " + pathLength;
+      progressPath.style.strokeDashoffset = pathLength;
+      progressPath.getBoundingClientRect();
+
+      progressPath.style.transition =
+        progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
+
+      var updateProgress = function () {
+        var scroll = $(window).scrollTop();
+        var height = $(document).height() - $(window).height();
+        var progress = pathLength - (scroll * pathLength) / height;
+        progressPath.style.strokeDashoffset = progress;
+      };
+
+      updateProgress();
+      $(window).scroll(updateProgress);
+    }
+
+    // Back to top göstərilməsi
     var offset = 50;
     var duration = 550;
-    jQuery(window).on("scroll", function () {
-      if (jQuery(this).scrollTop() > offset) {
-        jQuery(".progress-wrap").addClass("active-progress");
+
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > offset) {
+        $(".progress-wrap").addClass("active-progress");
       } else {
-        jQuery(".progress-wrap").removeClass("active-progress");
+        $(".progress-wrap").removeClass("active-progress");
       }
     });
-    jQuery(".progress-wrap").on("click", function (event) {
+
+    // Kliklə yuxarı çıxma
+    $(".progress-wrap").on("click", function (event) {
       event.preventDefault();
-      jQuery("html, body").animate({ scrollTop: 0 }, duration);
+      $("html, body").animate({ scrollTop: 0 }, duration);
       return false;
     });
-  });
-})(jQuery);
 
+  });
+
+})(jQuery);

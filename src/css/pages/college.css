@@ -2,7 +2,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: url('../../img/college.png') center/cover no-repeat;
+    background: url('/src/img/college.png') center/cover no-repeat;
     transform: scale(1);
     transition: transform .8s ease;
     will-change: transform;
@@ -10,7 +10,7 @@
 }
 
 .college-section {
-    margin: 80px auto 60px;
+    padding: 80px 0 60px;
 
 }
 
@@ -18,7 +18,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: 500;
-    color: var(--governmentBg);
+    color: var(--mainColor);
 }
 
 .college-content {
@@ -30,7 +30,7 @@
 
 @media(max-width: 992px) {
     .college-section {
-        margin: 20px auto;
+        padding: 20px 0 40px;
     }
 
     .college-title {

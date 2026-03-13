@@ -327,3 +327,93 @@
   width: 100%;
   border-radius: 8px;
 }
+.contact_blog {
+    font-family: "Poppins", sans-serif;
+}
+
+.contact_form {
+    background-color: var(--bgColor);
+    border-radius: 8px;
+    padding: 10px 40px;
+}
+
+.our_contact label {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--projectColorActive);
+    margin-left: 5px;
+}
+
+.contact-form-title {
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--projectColorActive);
+    margin: 24px 0 60px;
+}
+
+.contact-blog .form-group {
+    font-size: 14px;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+    line-height: 2rem;
+    color: #050f21;
+}
+
+.contact-blog .form-group textarea {
+    height: 150px;
+}
+
+.btn-contact-send {
+    width: auto;
+    height: auto;
+    text-align: center;
+    background-color: var(--platformColor);
+    margin: 40px auto;
+    padding: 10px 30px;
+    transition: all 0.5s ease-in-out;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--whiteColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-contact-send:hover {
+    background-color: var(--platformColor);
+    color: var(--whiteColor);
+    transform: scale(1.03);
+}
+
+
+.our_contact label::after {
+    content: " *";
+    color: red;    
+    font-weight: bold;
+}
+
+.our_contact select {
+    -webkit-appearance: none;  
+    -moz-appearance: none;   
+    appearance: none;          
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path fill="none" stroke="%23333" stroke-width="1" d="M3 5 L7 9 L11 5" /></svg>') no-repeat right center;
+    background-size: 20px;
+}
+
+.our_contact select[name="request"], select[name="initial_request"] {
+    background-color: var(--whiteColor); 
+}
+
+.our_contact select[name="imei_operations"], select[name="initial_request"] {
+    background-color: var(--whiteColor); 
+}
+
+.our_contact select:focus {
+    outline: none;
+}
+
+.our_contact select:hover, select:focus {
+    background-color: #f0f8ff;
+    border-color: #5a9bff;
+}

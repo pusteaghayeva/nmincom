@@ -1,5 +1,5 @@
 .tariffs-section {
-    margin: 80px 0;
+    padding: 80px 0;
 }
 
 .tariffs_bg::before {
@@ -76,8 +76,8 @@
     width: 0;
     height: 3px;
     background: linear-gradient(90deg,
-            rgba(33, 87, 255, 1),
-            rgba(120, 160, 255, 1));
+            rgba(0, 93, 150, 1),
+            rgb(2, 58, 189));
     transition: width .4s ease;
 }
 
@@ -93,6 +93,7 @@
 .tariffs-button.active span {
     color: var(--governmentBg);
 }
+
 
 .tariffs-content {
     margin: 20px 0;
@@ -149,13 +150,14 @@
     line-height: 1.7;
     color: var(--projectColorActive);
 }
+
 .tariffs-right-panel {
     padding: 12px 10px 12px;
 }
 
 .tariffs-right-title {
     display: inline-block;
-    color: #1e5bff;
+    color: var(--governmentBg);
     font-weight: 600;
     font-size: 16px;
     line-height: 1.35;
@@ -314,13 +316,13 @@
     }
 
     .tariffs-section {
-        margin: 60px 0;
+        padding: 60px 0;
     }
 }
 
 @media(max-width: 769px) {
     .tariffs-section {
-        margin: 30px 0;
+        padding: 30px 0;
     }
 
     .tariffs-type {
