@@ -1,0 +1,130 @@
+.single-gallery-bg {
+    width: 85%;
+    background-color: var(--structureBg);
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 30px 80px;
+}
+
+
+.single-gallery-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--actualMenuColor);
+    padding-top: 60px;
+    width: 70%;
+}
+
+.fancybox-image,
+.fancybox-spaceball {
+    border: 1px solid var(--structureBg);
+    border-radius: 20px;
+}
+
+.main {
+    margin: 64px 0;
+}
+
+.main .container {
+    display: grid;
+    gap: 16px;
+    justify-content: center;
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+}
+
+.main .card {
+    border: none;
+}
+
+.main .card-image {
+    width: 280px;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.main .card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.fancybox-image,
+.fancybox-spaceball {
+    border: 1px solid var(--structureBg);
+    border-radius: 20px;
+}
+
+.gallery-share {
+    width: 85%;
+    margin: 32px auto;
+}
+
+.share-gallery-text {
+    margin-left: 40px;
+}
+
+@media (max-width: 992px) {
+    .single-gallery-bg {
+        width: 100%;
+        padding: 0;
+    }
+
+    .single-gallery-title {
+        padding: 22px;
+        font-size: 20px;
+    }
+
+    .main {
+        margin: 20px 0;
+        padding: 20px 0;
+    }
+
+
+    .main .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .main .card-image {
+        width: 100%;
+        max-width: 280px;
+        height: 240px;
+    }
+
+    .gallery-share {
+        width: 100%;
+        margin: 15px 0;
+        flex-direction: row;
+    }
+
+    .single-gallery-title {
+        width: 100%;
+    }
+
+
+    .single-gallery-bg {
+        width: 100%;
+        padding: 0;
+    }
+
+    .single-gallery-title {
+        padding: 15px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main .container {
+        grid-template-columns: 1fr;
+    }
+
+    .main .card-image {
+        width: 100%;
+        max-width: 280px;
+        height: 240px;
+    }
+}

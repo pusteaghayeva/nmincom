@@ -1,0 +1,44 @@
+:root {
+  --menuColor: #1d1d1f;
+  --mainColor: rgba(0, 11, 109, 1);
+  --headerBorderColor: rgba(241, 245, 248, 1);
+  --searchBg: rgba(255, 255, 255, 0.8);
+  --bgColor: rgb(231, 241, 246);
+  --whiteColor: #fff;
+  --actualMenuColor: #25262a;
+  --rightIConColor: #575757;
+  --rightIconLightColor: #9c9c9c;
+  --fontInter: "Inter", sans-serif;
+  --fontRoboto: "Roboto", sans-serif;
+  --platformColor: #219bff;
+  --blackColor: #000;
+  --borderColor: #4378FF;
+  --telecomActive: rgba(67, 120, 255, 0.5);
+  --governmentBg: rgb(244, 249, 254);
+  --governmentText: rgba(33, 87, 255, 1);
+  --governmentColor: #0F7EF5;
+  --projectColorActive: rgba(37, 38, 42, 1);
+  --projectColor: rgba(156, 156, 156, 1);
+  --managementBorderColor: rgba(220, 220, 220, 1);
+  --managementColor: rgba(67, 120, 255, 1);
+  --structureBg: rgba(255, 255, 255, 1);
+  --structureRegulationBg: rgba(232, 241, 246, 1);
+  --tariffsScrollColor: rgba(229, 229, 234, 1);
+  --singelNewsDateColor: rgba(77, 80, 88, 1);
+  --announcementDateColor: rgba(87, 87, 87, 1);
+  --bg: #eaf3f7;
+  --line: #b7cdfc;
+  --radius: 10px;
+  --cx: 160px;
+  --btnOffsetY: -10px;
+  --ch: 70px;
+  --cw: 640px;
+  --headerH: 160px;
+  --langColor: rgba(26, 26, 26, 1);
+  --menuSearchColor: #e6ebf1;
+  --headerH: 0px;
+  --govH: 0px;
+  --headerMainH: 0px;
+  --headerTotalH: 0px;
+
+}
