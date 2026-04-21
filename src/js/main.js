@@ -1,5 +1,3 @@
-
-
 (function () {
   const govBar = document.querySelector('.government_platform');
   const header = document.querySelector('.header-main');

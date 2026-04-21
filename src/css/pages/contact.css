@@ -263,6 +263,9 @@
 .contact-border-img {
   transition: transform 0.6s ease;
 }
+.our_contact label.no-star::after {
+    content: none;
+}
 
 @keyframes bounce {
   0%,
